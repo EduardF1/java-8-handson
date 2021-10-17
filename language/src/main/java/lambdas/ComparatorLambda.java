@@ -11,8 +11,20 @@ public class ComparatorLambda {
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
-        logger.info(compareJava7(10, 12));
+        logger.info(compareJava7(12, 12));
+        logger.info(compareJava8(1,1));
     }
+
+    private static String compareJava8(int m, int n) {
+        /*
+        alternatively, define implementation:
+            a)  (Integer x, Integer y) -> x.compareTo(y)
+            b)  (x, y) -> x.compareTo(y)
+         */
+        Comparator<Integer> comparator = Integer::compareTo;
+        return getOutput(comparator.compare(m,n), m, n);
+    }
+
 
     private static String compareJava7(int x, int y) {
         Comparator<Integer> comparator = new Comparator<Integer>() {
@@ -25,6 +37,16 @@ public class ComparatorLambda {
     }
 
     private static String getOutput(int flag, int x, int y) {
-        return flag == 1 ? String.format("The value of x = %d is greater than y = %d", x, y) : String.format("The value of x = %d is lower than y = %d", x, y);
+        switch (flag) {
+            case -1:
+                return String.format("The value of x = %d is lower than y = %d", x, y);
+            case 0:
+                return String.format("The value of x = %d is equal to y = %d", x, y);
+            case 1:
+                return String.format("The value of x = %d is greater than y = %d", x, y);
+            default:
+                break;
+        }
+        return "";
     }
 }

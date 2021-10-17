@@ -39,3 +39,32 @@ public interface iName {
     void test(int a, int b);
 }
 ```
+
+### 2. Functional Interface
+- A functional interface is an interface that contains only one abstract method.
+- They expose only one functionality.
+- Lambdas can be used to represent the instance of a functional interface.
+- Examples: Runnable, ActionListener, Comparable.
+- Can contain default and static methods.
+<br><strong>Shape</strong>:
+```
+@FunctionalInterface                <---------- mandatory
+public interface TestInterface {
+    // abstract methods
+    void add();
+    
+    // default method
+    default String sayHi(){
+        return "Hi";
+    }
+    
+    static boolean isTrue() {
+        return true;
+    }
+}
+```
+#### Pillar interfaces:
+- Consumer
+- Predicate
+- Function
+- Supplier
