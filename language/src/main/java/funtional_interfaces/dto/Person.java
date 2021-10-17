@@ -1,7 +1,7 @@
 package funtional_interfaces.dto;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Person {
     private String name;
@@ -9,7 +9,7 @@ public class Person {
     private double salary;
     private String gender;
     private int kids;
-    List<String> hobbies = new ArrayList<>();
+    List<String> hobbies;
 
     public Person(String name, int height, double salary, String gender, int kids, List<String> hobbies) {
         this.name = name;
@@ -66,5 +66,30 @@ public class Person {
 
     public void setHobbies(List<String> hobbies) {
         this.hobbies = hobbies;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return height == person.height && Double.compare(person.salary, salary) == 0 && kids == person.kids && name.equals(person.name) && gender.equals(person.gender) && hobbies.equals(person.hobbies);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, height, salary, gender, kids, hobbies);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", height=" + height +
+                ", salary=" + salary +
+                ", gender='" + gender + '\'' +
+                ", kids=" + kids +
+                ", hobbies=" + hobbies +
+                '}';
     }
 }

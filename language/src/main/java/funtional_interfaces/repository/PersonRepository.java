@@ -17,4 +17,11 @@ public class PersonRepository {
 
         return Arrays.asList(p1,p2,p3,p4,p5,p6);
     }
+
+    public static Person getPerson(String name){
+        return getAllPersons().stream()
+                .filter(person -> name.equals(person.getName()))
+                .findAny()
+                .orElse(null);
+    }
 }
