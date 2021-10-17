@@ -39,7 +39,7 @@ public class StreamMinMax {
     private static List<Person> getTallestPersons() {
         List<Person> tallestPersons = new ArrayList<>();
         Optional<Person> tallestPerson = getTallestPerson();
-        Person person = tallestPerson.isPresent() ? tallestPerson.get() : null;
+        Person person = tallestPerson.orElse(null);
         if (null != person) {
             tallestPersons = PersonRepository.getAllPersons()
                     .stream()
