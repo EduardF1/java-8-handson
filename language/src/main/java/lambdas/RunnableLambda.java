@@ -4,8 +4,6 @@ import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import java.util.HashMap;
-import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class RunnableLambda {
@@ -23,7 +21,7 @@ public class RunnableLambda {
     }
 
     private static void runThreadJava7(String output) {
-        Runnable thread = new Runnable() {
+        java.lang.Runnable thread = new java.lang.Runnable() {
             @Override
             public void run() {
                 logger.info(output + TAB + getId());
