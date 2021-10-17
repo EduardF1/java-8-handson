@@ -2,18 +2,23 @@ package operations;
 
 import function.dto.Person;
 import function.repository.PersonRepository;
+
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamFilter {
     private static final Logger logger = LogManager.getLogger(StreamFilter.class);
     private static final List<String> names = Arrays.asList("Samuel", "Anders", "Nicki", "Joel", "Xin", "Jan");
+
+    static Predicate<Person> checkHeightGreaterThan170 = person -> person.getHeight() >= 170;
+    static Predicate<Person> checkGenderMale = person -> person.getGender().equals("Male");
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
@@ -26,8 +31,8 @@ public class StreamFilter {
 
         List<Person> tallMalePersons = PersonRepository.getAllPersons()
                 .stream()
-                .filter(person -> person.getHeight() >= 170)
-                .filter(person -> person.getGender().equals("Male"))
+                .filter(checkHeightGreaterThan170)
+                .filter(checkGenderMale)
                 .collect(Collectors.toList());
 
         tallMalePersons.forEach(logger::info);
