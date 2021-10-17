@@ -28,7 +28,7 @@ public class PersonConsumer {
         getAllPersons().forEach(consumer.andThen(consumer2));
     }
 
-    static void getAllMaleAndTallPersonsInformation() {
+    static void getAllMaleAndTallPersonsHobbiesAndCapitalizedNames() {
         getAllPersons().forEach(person -> {
             if (person.getGender().equals("Male") && person.getHeight() >= 140) {
                 consumer2.andThen(consumer3).accept(person);
@@ -48,6 +48,6 @@ public class PersonConsumer {
         //  consumer.andThen(consumer2).andThen(consumer3).accept(PersonRepository.getPerson("John"));
 
         getAllPersonsInformation();
-        getAllMaleAndTallPersonsInformation();
+        getAllMaleAndTallPersonsHobbiesAndCapitalizedNames();
     }
 }
