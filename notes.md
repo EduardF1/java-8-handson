@@ -142,3 +142,7 @@ List square = numbers.stream().map(x->x*x).collect(Collectors.toList());
 | IntStream                    |  Primitive int         |
 | LongStream                   |  Primitive long        |
 | DoubleStream                 |  Primitive double      |
+
+#### Boxing vs Unboxing
+- Boxing : convert primitives to wrapper types
+- Unboxing : convert wrapper types to primitives
