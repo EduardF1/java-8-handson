@@ -126,4 +126,10 @@ List square = numbers.stream().map(x->x*x).collect(Collectors.toList());
     * Filter the data within the stream based on a predicate (condition/test)
 - reduce():
     * Perform an operation on each of the elements of the stream, the operation is user-defined.
-  
+
+#### Factory Methods
+| Collections                  |    Streams                                                   |
+|------------------------------|:------------------------------------------------------------:|
+| Stream.iterate               |  Returns infinite sequential order stream                    |
+| Stream.generate              |  Returns infinite unordered stream                           |
+| Stream.of                    |  Returns sequential ordered stream with the specified values |

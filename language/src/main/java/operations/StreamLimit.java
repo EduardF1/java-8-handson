@@ -17,6 +17,7 @@ public class StreamLimit {
 
         displayFruits(2);
         displaySum(4);
+        displayFruitsWithSkip(3);
     }
 
     private static void displayFruits(int numberOfElements){
@@ -25,5 +26,9 @@ public class StreamLimit {
 
     private static void displaySum(int numberOfElements){
         logger.info(numbers.stream().limit(numberOfElements).reduce(0, Integer::sum));
+    }
+
+    private static void displayFruitsWithSkip(int numberOfSkips){
+        logger.info(numbers.stream().skip(numberOfSkips).reduce(0, Integer::sum));
     }
 }
