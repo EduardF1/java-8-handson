@@ -15,11 +15,14 @@ public class PersonRepository {
         Person p4 = new Person("Jimmy", 180, 3200, "Male", 2, Arrays.asList("Swimming", "Driving", "Tennis"));
         Person p5 = new Person("Dwayne", 183, 6000, "Male", 4, Arrays.asList("Volley", "Football", "Tennis"));
         Person p6 = new Person("Darell", 167, 5000, "Male", 0, Arrays.asList("Cooking", "Writing", "Tennis"));
+        Person p7 = new Person("Luigi", 165, 2500, "Male", 3, Arrays.asList("Driving", "Cooking", "Cycling"));
+        Person p8 = new Person("Giovanni", 190, 2500, "Male", 3, Arrays.asList("Driving", "Cooking", "Cycling"));
 
-        return Arrays.asList(p1,p2,p3,p4,p5,p6);
+
+        return Arrays.asList(p1, p2, p3, p4, p5, p6, p7, p8);
     }
 
-    public static Person getPersonByName(String name){
+    public static Person getPersonByName(String name) {
         return getAllPersons().stream()
                 .filter(person -> name.equals(person.getName()))
                 .findAny()
