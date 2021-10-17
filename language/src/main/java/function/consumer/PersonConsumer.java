@@ -1,7 +1,7 @@
-package funtional_interfaces.consumer;
+package function.consumer;
 
-import funtional_interfaces.dto.Person;
-import funtional_interfaces.repository.PersonRepository;
+import function.dto.Person;
+import function.repository.PersonRepository;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;

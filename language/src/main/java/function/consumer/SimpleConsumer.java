@@ -1,4 +1,4 @@
-package funtional_interfaces.consumer;
+package function.consumer;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;

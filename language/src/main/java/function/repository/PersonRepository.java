@@ -1,6 +1,6 @@
-package funtional_interfaces.repository;
+package function.repository;
 
-import funtional_interfaces.dto.Person;
+import function.dto.Person;
 
 import java.util.Arrays;
 import java.util.List;

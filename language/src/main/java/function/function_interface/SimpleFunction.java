@@ -1,4 +1,4 @@
-package funtional_interfaces.function_interface;
+package function.function_interface;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;

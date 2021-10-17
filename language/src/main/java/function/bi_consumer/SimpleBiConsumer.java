@@ -1,4 +1,4 @@
-package funtional_interfaces.bi_consumer;
+package function.bi_consumer;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;

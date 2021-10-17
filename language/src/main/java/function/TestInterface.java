@@ -1,4 +1,4 @@
-package funtional_interfaces;
+package function;
 
 @FunctionalInterface
 public interface TestInterface {

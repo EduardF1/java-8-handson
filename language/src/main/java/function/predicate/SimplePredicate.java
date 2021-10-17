@@ -1,4 +1,4 @@
-package funtional_interfaces.predicate;
+package function.predicate;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;

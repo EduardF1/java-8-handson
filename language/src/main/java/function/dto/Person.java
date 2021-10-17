@@ -1,4 +1,4 @@
-package funtional_interfaces.dto;
+package function.dto;
 
 import java.util.List;
 import java.util.Objects;
