@@ -124,3 +124,6 @@ List square = numbers.stream().map(x->x*x).collect(Collectors.toList());
     * Or perform custom object sorting (based on the given attribute)
 - filter():
     * Filter the data within the stream based on a predicate (condition/test)
+- reduce():
+    * Perform an operation on each of the elements of the stream, the operation is user-defined.
+  
