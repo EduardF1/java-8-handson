@@ -109,3 +109,8 @@ List square = numbers.stream().map(x->x*x).collect(Collectors.toList());
 | Collection about data        |  About computation on data |
 | Iterate over collection      |  Internal iteration        |
 | Multiple iterations possible |  Only once                 |
+
+#### Stream API operations
+- map():
+    * Transform one type of data to another type of data
+    * Not the Map Collection
