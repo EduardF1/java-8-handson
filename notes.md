@@ -133,3 +133,12 @@ List square = numbers.stream().map(x->x*x).collect(Collectors.toList());
 | Stream.iterate               |  Returns infinite sequential order stream                    |
 | Stream.generate              |  Returns infinite unordered stream                           |
 | Stream.of                    |  Returns sequential ordered stream with the specified values |
+
+#### Numeric Stream
+- A stream of primitive type references.
+
+| Stream Types                 |    Contained data type |
+|------------------------------|:----------------------:|
+| IntStream                    |  Primitive int         |
+| LongStream                   |  Primitive long        |
+| DoubleStream                 |  Primitive double      |
