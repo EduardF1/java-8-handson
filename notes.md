@@ -114,3 +114,13 @@ List square = numbers.stream().map(x->x*x).collect(Collectors.toList());
 - map():
     * Transform one type of data to another type of data
     * Not the Map Collection
+- flatMap():
+    * Transform one type of data to another type of data
+    * Used to flatten a stream of a collection
+    * Applying 1..* transformation(s) to the elements
+    * Create a new stream once the elements are flattened
+- sorted():
+    * Perform basic sorting, i.e. arrange elements alphabetically
+    * Or perform custom object sorting (based on the given attribute)
+- filter():
+    * Filter the data within the stream based on a predicate (condition/test)
