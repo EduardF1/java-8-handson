@@ -15,8 +15,8 @@ public class SimpleFunction {
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
-        logger.info("Result 1: " + functionOne.apply("java"));
-        logger.info("Result 2: " + functionTwo.apply("java"));
+        logger.info("Result one:" + functionOne.apply("java"));
+        logger.info("Result two:" + functionTwo.apply("java"));
 
         logger.info("And then Result: " + functionOne.andThen(functionTwo).apply("java"));
         logger.info("Composed Result: " + functionOne.compose(functionTwo).apply("java"));

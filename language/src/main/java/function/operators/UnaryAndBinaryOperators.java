@@ -18,8 +18,8 @@ public class UnaryAndBinaryOperators {
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
-        logger.info("Result 1: " + unaryOperatorOne.apply("Java8"));
-        logger.info("Result 2: " + unaryOperatorTwo.apply(21));
+        logger.info("Result one:" + unaryOperatorOne.apply("Java8"));
+        logger.info("Result two:" + unaryOperatorTwo.apply(21));
 
         BinaryOperator<Integer> binaryOperatorOne = BinaryOperator.maxBy(comparator);
         BinaryOperator<Integer> binaryOperatorTwo = BinaryOperator.minBy(comparator);

@@ -4,6 +4,7 @@ import function.dto.Person;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class PersonRepository {
 
@@ -18,10 +19,14 @@ public class PersonRepository {
         return Arrays.asList(p1,p2,p3,p4,p5,p6);
     }
 
-    public static Person getPerson(String name){
+    public static Person getPersonByName(String name){
         return getAllPersons().stream()
                 .filter(person -> name.equals(person.getName()))
                 .findAny()
                 .orElse(null);
+    }
+
+    public static Person getPerson() {
+        return getAllPersons().get(new Random().nextInt(6));
     }
 }
