@@ -4,6 +4,7 @@ import function.dto.Person;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 public class PersonRepository {
@@ -31,5 +32,9 @@ public class PersonRepository {
 
     public static Person getPerson() {
         return getAllPersons().get(new Random().nextInt(6));
+    }
+
+    public static Optional<Person> getPersonOptional(){
+        return Optional.of(getPerson());
     }
 }

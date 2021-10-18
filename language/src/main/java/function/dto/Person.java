@@ -9,7 +9,7 @@ public class Person {
     private double salary;
     private String gender;
     private int kids;
-    List<String> hobbies;
+    private List<String> hobbies;
 
     public Person(String name, int height, double salary, String gender, int kids, List<String> hobbies) {
         this.name = name;
@@ -18,6 +18,10 @@ public class Person {
         this.gender = gender;
         this.kids = kids;
         this.hobbies = hobbies;
+    }
+
+    public Person() {
+        // Required Empty constructor
     }
 
     public String getName() {

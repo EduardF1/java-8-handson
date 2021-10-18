@@ -22,7 +22,7 @@ Syntax:
     |- input(s)     |- token        |- body
 ```
 
-#### 1. Lambdas
+### 1. Lambdas
 - Same as a function
 - Called as an Anonymous block:
   - parameters
@@ -63,13 +63,13 @@ public interface TestInterface {
     }
 }
 ```
-#### Pillar interfaces:
+### Pillar interfaces:
 - Consumer
 - Predicate
 - Function
 - Supplier
 
-#### Method-reference
+### Method-reference
 - Reference to a static method
 - Reference to an instance method
 - Reference to a constructor
@@ -78,7 +78,7 @@ Syntax:
 ClassName :: methodName
 ```
 
-#### Local Variables
+### Local Variables
 - Lambdas are allowed to use local variables, but not allowed for modification (effectively, final)
 - Concurrency operations are effective in that way
 - Class level variables or instance variables are allowed to modify
@@ -86,7 +86,7 @@ ClassName :: methodName
     - local variables can be used but not modified within lambda functions
     - instance variables can be both used and modified within lambda functions
 
-#### Stream
+### Stream
 - Sequence of Data Elements
 - A Java Stream can be defined as a sequence of elements from a source that supports aggregate operations on them
 - Can be performed <strong>Sequentially or Parallel</strong>
@@ -101,7 +101,7 @@ List numbers = Arrays.asList(2,3,4,5);
 List square = numbers.stream().map(x->x*x).collect(Collectors.toList());
 ```
 
-#### Collection vs Streams
+### Collection vs Streams
 | Collections                  |    Streams                 |
 |------------------------------|:--------------------------:|
 | Read and Write               |  Read-Only                 |
@@ -110,7 +110,7 @@ List square = numbers.stream().map(x->x*x).collect(Collectors.toList());
 | Iterate over collection      |  Internal iteration        |
 | Multiple iterations possible |  Only once                 |
 
-#### Stream API operations
+### Stream API operations
 - map():
     * Transform one type of data to another type of data
     * Not the Map Collection
@@ -127,14 +127,14 @@ List square = numbers.stream().map(x->x*x).collect(Collectors.toList());
 - reduce():
     * Perform an operation on each of the elements of the stream, the operation is user-defined.
 
-#### Factory Methods
+### Factory Methods
 | Collections                  |    Streams                                                   |
 |------------------------------|:------------------------------------------------------------:|
 | Stream.iterate               |  Returns infinite sequential order stream                    |
 | Stream.generate              |  Returns infinite unordered stream                           |
 | Stream.of                    |  Returns sequential ordered stream with the specified values |
 
-#### Numeric Stream
+### Numeric Stream
 - A stream of primitive type references.
 
 | Stream Types                 |    Contained data type |
@@ -143,11 +143,11 @@ List square = numbers.stream().map(x->x*x).collect(Collectors.toList());
 | LongStream                   |  Primitive long        |
 | DoubleStream                 |  Primitive double      |
 
-#### Boxing vs Unboxing
+### Boxing vs Unboxing
 - Boxing : convert primitives to wrapper types
 - Unboxing : convert wrapper types to primitives
 
-#### Sequential vs Parallel
+### Sequential vs Parallel
 | Sequential                                      |    Parallel                                                          |
 |-------------------------------------------------|:--------------------------------------------------------------------:|
 | Works just like a for-loop using a single core  | Divide the provided task into many and run them in different threads |
@@ -179,3 +179,20 @@ Parallel: core 1  |  Iteration 2 |  |  Iteration 5 |
                   
           |------------------------------------------------- TIME ----------------------------------------------------------->        
 ```
+- Whenever choosing between sequential and parallel streams, one should always consider thoroughly whether it is or not necessary,
+will the usage of a parallel stream improve performance, will the end computation be valid (numeric computations have a high change of error).
+
+### Optional
+- Is a container object used to contain not-null objects.
+- Used to represent null values with absent values.
+- Has a variety of utility methods to facilitate code that handles
+values as 'available' or 'not available' instead of checking null values.
+- Null checks are not required and no more N.P.E at runtime.
+- No more boilerplate code.
+
+#### Optional-Methods
+| Method                       |    Description                                                                                        |
+|------------------------------|:-----------------------------------------------------------------------------------------------------:|
+| empty()                      |  Returns an empty Optional instance                                                                   |
+| of(T value)                  |  Returns an Optional with the specified present not null value                                        |
+| ofNullable(T value)          |  Returns an Optional Describing the specified value, if not null, otherwise returns an empty Optional |
