@@ -7,17 +7,17 @@ import org.apache.log4j.Logger;
 import java.util.Optional;
 
 public class OptionalMethods {
-    private static final Logger logger = LogManager.getLogger(OptionalMethods.class);
+    private static final Logger LOGGER = LogManager.getLogger(OptionalMethods.class);
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
         Optional<String> of = Optional.of("java8");
-        logger.info(of.get());
+        LOGGER.info(of.get());
 
         Optional<String> ofNullable = Optional.ofNullable(null);
-        logger.info(ofNullable.isPresent() ? ofNullable.get() : Optional.empty());
-        logger.info(ofNullable.orElse("No value found."));
+        LOGGER.info(ofNullable.isPresent() ? ofNullable.get() : Optional.empty());
+        LOGGER.info(ofNullable.orElse("No value found."));
 
     }
 }

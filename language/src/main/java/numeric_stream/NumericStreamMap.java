@@ -9,14 +9,14 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class NumericStreamMap {
-    private static final Logger logger = LogManager.getLogger(NumericStreamMap.class);
+    private static final Logger LOGGER = LogManager.getLogger(NumericStreamMap.class);
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
-        logger.info("Map to double: " + mapIntegersToDouble());
-        logger.info("Map to long: " + mapIntegersToLong());
-        logger.info("Map to object: " + mapToObject());
+        LOGGER.info("Map to double: " + mapIntegersToDouble());
+        LOGGER.info("Map to long: " + mapIntegersToLong());
+        LOGGER.info("Map to object: " + mapToObject());
     }
 
     private static double mapIntegersToDouble() {

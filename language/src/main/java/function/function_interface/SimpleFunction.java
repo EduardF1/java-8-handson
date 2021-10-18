@@ -7,18 +7,18 @@ import org.apache.log4j.Logger;
 import java.util.function.Function;
 
 public class SimpleFunction {
-    private static final Logger logger = LogManager.getLogger(SimpleFunction.class);
+    private static final Logger LOGGER = LogManager.getLogger(SimpleFunction.class);
 
-    static Function<String, String> functionOne = name -> name.toUpperCase();
-    static Function<String, String> functionTwo = name -> name.toUpperCase().concat(" features");
+    private static final Function<String, String> functionOne = name -> name.toUpperCase();
+    private static final Function<String, String> functionTwo = name -> name.toUpperCase().concat(" features");
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
-        logger.info("Result one:" + functionOne.apply("java"));
-        logger.info("Result two:" + functionTwo.apply("java"));
+        LOGGER.info("Result one:" + functionOne.apply("java"));
+        LOGGER.info("Result two:" + functionTwo.apply("java"));
 
-        logger.info("And then Result: " + functionOne.andThen(functionTwo).apply("java"));
-        logger.info("Composed Result: " + functionOne.compose(functionTwo).apply("java"));
+        LOGGER.info("And then Result: " + functionOne.andThen(functionTwo).apply("java"));
+        LOGGER.info("Composed Result: " + functionOne.compose(functionTwo).apply("java"));
     }
 }

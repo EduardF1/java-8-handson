@@ -8,12 +8,12 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
 public class Java7vs8 {
-    private static final Logger logger = LogManager.getLogger(Java7vs8.class);
+    private static final Logger LOGGER = LogManager.getLogger(Java7vs8.class);
 
     public static void main(String[] args) throws InterruptedException {
         BasicConfigurator.configure();
-        logger.info(getExecutionTimeInMilliseconds());
-        logger.info(sumFrom0To50Java8());
+        LOGGER.info(getExecutionTimeInMilliseconds());
+        LOGGER.info(sumFrom0To50Java8());
     }
 
 

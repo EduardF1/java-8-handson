@@ -11,10 +11,10 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class PersonPredicate {
-    private static final Logger logger = LogManager.getLogger(PersonPredicate.class);
+    private static final Logger LOGGER = LogManager.getLogger(PersonPredicate.class);
 
-    static Predicate<Person> isHeightGreaterThan140 = person -> person.getHeight() >= 140;
-    static Predicate<Person> isGenderMale = person -> person.getGender().equals("Male");
+    private static final Predicate<Person> isHeightGreaterThan140 = person -> person.getHeight() >= 140;
+    private static final Predicate<Person> isGenderMale = person -> person.getGender().equals("Male");
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
@@ -23,6 +23,6 @@ public class PersonPredicate {
                 .stream()
                 .filter(isHeightGreaterThan140.and(isGenderMale))
                 .collect(Collectors.toList())
-                .forEach(person -> logger.info(person.toString()));
+                .forEach(person -> LOGGER.info(person.toString()));
     }
 }

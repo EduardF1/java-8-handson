@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class StreamLimit {
-    private static final Logger logger = LogManager.getLogger(StreamLimit.class);
+    private static final Logger LOGGER = LogManager.getLogger(StreamLimit.class);
     private static final List<String> fruits = Arrays.asList("Avocado", "Banana", "Mango", "Pineapple");
     private static final List<Integer> numbers = Arrays.asList(1,2,3,4,5,6);
 
@@ -21,14 +21,14 @@ public class StreamLimit {
     }
 
     private static void displayFruits(int numberOfElements){
-        fruits.stream().limit(numberOfElements).forEach(logger::info);
+        fruits.stream().limit(numberOfElements).forEach(LOGGER::info);
     }
 
     private static void displaySum(int numberOfElements){
-        logger.info(numbers.stream().limit(numberOfElements).reduce(0, Integer::sum));
+        LOGGER.info(numbers.stream().limit(numberOfElements).reduce(0, Integer::sum));
     }
 
     private static void displayFruitsWithSkip(int numberOfSkips){
-        logger.info(numbers.stream().skip(numberOfSkips).reduce(0, Integer::sum));
+        LOGGER.info(numbers.stream().skip(numberOfSkips).reduce(0, Integer::sum));
     }
 }

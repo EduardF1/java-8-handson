@@ -10,17 +10,17 @@ import java.util.function.BinaryOperator;
 import java.util.stream.IntStream;
 
 public class NumericStream {
-    private static final Logger logger = LogManager.getLogger(NumericStream.class);
+    private static final Logger LOGGER = LogManager.getLogger(NumericStream.class);
     private static final List<Integer> numbers = Arrays.asList(4,5,6,7,8,9,11);
     private static BinaryOperator<Integer> add = Integer::sum;
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
-        logger.info("The total is: " + calculateSum(numbers));
+        LOGGER.info("The total is: " + calculateSum(numbers));
 
         IntStream intStream = IntStream.rangeClosed(1, 10);
-        logger.info("The total (streams) is: " + calculateSumWithStream(intStream));
+        LOGGER.info("The total (streams) is: " + calculateSumWithStream(intStream));
     }
 
     private static int calculateSum(List<Integer> numbers){

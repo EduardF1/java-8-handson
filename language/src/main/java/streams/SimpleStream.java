@@ -14,13 +14,13 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class SimpleStream {
-    private static final Logger logger = LogManager.getLogger(SimpleStream.class);
+    private static final Logger LOGGER = LogManager.getLogger(SimpleStream.class);
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
         Stream<Integer> streamOne = Stream.of(1, 2, 3, 4, 5, 6);
-        streamOne.forEach(logger::info);
+        streamOne.forEach(LOGGER::info);
 
         Predicate<Person> predicateOne = (person -> person.getHeight() >= 170);
         Predicate<Person> predicateTwo = (person -> person.getGender().equals("Male"));
@@ -32,7 +32,7 @@ public class SimpleStream {
                 .filter(predicateOne)       //  filter based on predicate (test)
                 .filter(predicateTwo)
                 .collect(Collectors.toMap(Person::getName, Person::getHobbies));
-        logger.info("Person Map :" + personMap);
+        LOGGER.info("Person Map :" + personMap);
 
         List<String> personHobbies = PersonRepository
                 .getAllPersons()                // List of Persons
@@ -42,6 +42,6 @@ public class SimpleStream {
                 .distinct()                     // Filter against duplicates
                 .collect(Collectors.toList());  // Collection to be returned
 
-        logger.info(personHobbies);
+        LOGGER.info(personHobbies);
     }
 }

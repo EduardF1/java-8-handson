@@ -8,21 +8,21 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiConsumer;
 
-public class SimpleBiConsumer {
-    private static final Logger logger = LogManager.getLogger(SimpleBiConsumer.class);
-    private static final String ADD = "+";
-    private static final String SUBTRACT = "-";
-    private static final String DIVIDE = "/";
-    private static final String MULTIPLY = "*";
-    private static final String MODULO = "%";
+import static shared.Constants.ADD;
+import static shared.Constants.SUBTRACT;
+import static shared.Constants.MULTIPLY;
+import static shared.Constants.MODULO;
+import static shared.Constants.DIVIDE;
 
+public class SimpleBiConsumer {
+    private static final Logger LOGGER = LogManager.getLogger(SimpleBiConsumer.class);
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
-        BiConsumer<Integer, Integer> addConsumer = (a, b) -> logger.info(getOutput(a, b, ADD));
-        BiConsumer<Integer, Integer> subConsumer = (a,b) -> logger.info(getOutput(a,b, SUBTRACT));
-        BiConsumer<Integer, Integer> mulConsumer = (a,b) -> logger.info(getOutput(a,b, MULTIPLY));
+        BiConsumer<Integer, Integer> addConsumer = (a, b) -> LOGGER.info(getOutput(a, b, ADD));
+        BiConsumer<Integer, Integer> subConsumer = (a,b) -> LOGGER.info(getOutput(a,b, SUBTRACT));
+        BiConsumer<Integer, Integer> mulConsumer = (a,b) -> LOGGER.info(getOutput(a,b, MULTIPLY));
 
         // Sequential explicit calls
         subConsumer.accept(10, 20);
@@ -40,7 +40,7 @@ public class SimpleBiConsumer {
 
 
     private static void compareListSizes(List<Integer> list1, List<Integer> list2) {
-        logger.info(list1.size() == list2.size());
+        LOGGER.info(list1.size() == list2.size());
     }
 
     private static String getOutput(int a, int b, String operand) {

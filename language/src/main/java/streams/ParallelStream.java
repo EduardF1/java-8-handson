@@ -11,13 +11,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ParallelStream {
-    private static final Logger logger = LogManager.getLogger(ParallelStream.class);
+    private static final Logger LOGGER = LogManager.getLogger(ParallelStream.class);
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
-        logger.info(getHobbiesWithSequence());
-        logger.info(getHobbiesParallel());
+        LOGGER.info(getHobbiesWithSequence());
+        LOGGER.info(getHobbiesParallel());
     }
 
     private static List<String> getHobbiesWithSequence() {
@@ -28,7 +28,7 @@ public class ParallelStream {
                 .flatMap(List::stream)
                 .collect(Collectors.toList());
         long endTime = System.currentTimeMillis();
-        logger.info("Sequential Duration :" + (endTime - startTime));
+        LOGGER.info("Sequential Duration :" + (endTime - startTime));
         return personsHobbies;
     }
 
@@ -40,7 +40,7 @@ public class ParallelStream {
                 .flatMap(List::stream)
                 .collect(Collectors.toList());
         long endTime = System.currentTimeMillis();
-        logger.info("Parallel Duration :" + (endTime - startTime));
+        LOGGER.info("Parallel Duration :" + (endTime - startTime));
         return personsHobbies;
     }
 }

@@ -9,13 +9,13 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class ParallelWhenNotToUse {
-    private static final Logger logger = LogManager.getLogger(ParallelWhenNotToUse.class);
+    private static final Logger LOGGER = LogManager.getLogger(ParallelWhenNotToUse.class);
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
-        logger.info(getSequentialSum(getNumbers()));
-        logger.info(getParallelSum(getNumbers()));
+        LOGGER.info(getSequentialSum(getNumbers()));
+        LOGGER.info(getParallelSum(getNumbers()));
     }
 
     private static List<Integer> getNumbers(){
@@ -27,7 +27,7 @@ public class ParallelWhenNotToUse {
         int total = list.stream()
                 .reduce(0, Integer::sum);
         long endTime = System.currentTimeMillis();
-        logger.info("Sequential Duration :" + (endTime - startTime));
+        LOGGER.info("Sequential Duration :" + (endTime - startTime));
         return total;
     }
 
@@ -36,7 +36,7 @@ public class ParallelWhenNotToUse {
         int total = list.parallelStream()
                 .reduce(0, Integer::sum);
         long endTime = System.currentTimeMillis();
-        logger.info("Parallel Duration :" + (endTime - startTime));
+        LOGGER.info("Parallel Duration :" + (endTime - startTime));
         return total;
     }
 }

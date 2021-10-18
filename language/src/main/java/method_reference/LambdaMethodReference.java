@@ -12,23 +12,23 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class LambdaMethodReference {
-    private static final Logger logger = LogManager.getLogger(LambdaMethodReference.class);
+    private static final Logger LOGGER = LogManager.getLogger(LambdaMethodReference.class);
 
-    static Function<String, String> functionOne = name -> name.toUpperCase();
-    static Function<String, String> functionTwo = String::toUpperCase;
+    private static final Function<String, String> functionOne = name -> name.toUpperCase();
+    private static final Function<String, String> functionTwo = String::toUpperCase;
 
-    static Predicate<Person> predicateOne = person -> person.getHeight() >= 170;
-    static Predicate<Person> predicateTwo = LambdaMethodReference::heightCheck;
-    static BiPredicate<Person, Integer> predicateThree = LambdaMethodReference::heightCheckWithParameter;
+    private static final Predicate<Person> predicateOne = person -> person.getHeight() >= 170;
+    private static final Predicate<Person> predicateTwo = LambdaMethodReference::heightCheck;
+    private static final BiPredicate<Person, Integer> predicateThree = LambdaMethodReference::heightCheckWithParameter;
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
-        logger.info("Lambda Expression Result :" + functionOne.apply("java 8"));
-        logger.info("Method reference Result :" + functionTwo.apply("java 8"));
-        logger.info("Predicate 1 Result :" + predicateOne.test(PersonRepository.getPerson()));
-        logger.info("Predicate 2 Result :" + predicateTwo.test(PersonRepository.getPerson()));
-        logger.info("Predicate 3 Result :" + predicateThree.test(PersonRepository.getPerson(), 155));
+        LOGGER.info("Lambda Expression Result :" + functionOne.apply("java 8"));
+        LOGGER.info("Method reference Result :" + functionTwo.apply("java 8"));
+        LOGGER.info("Predicate 1 Result :" + predicateOne.test(PersonRepository.getPerson()));
+        LOGGER.info("Predicate 2 Result :" + predicateTwo.test(PersonRepository.getPerson()));
+        LOGGER.info("Predicate 3 Result :" + predicateThree.test(PersonRepository.getPerson(), 155));
     }
 
     private static boolean heightCheck(Person person) {

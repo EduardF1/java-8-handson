@@ -13,13 +13,13 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class PersonFunction {
-    private static final Logger logger = LogManager.getLogger(PersonFunction.class);
+    private static final Logger LOGGER = LogManager.getLogger(PersonFunction.class);
 
-    static Function<String, Integer> functionOne = name -> name.length();
-    static Predicate<Person> isHeightGreaterThan140 = person -> person.getHeight() >= 170;
-    static Predicate<Person> isGenderMale = person -> person.getGender().equals("Male");
+    private static final Function<String, Integer> functionOne = name -> name.length();
+    private static final Predicate<Person> isHeightGreaterThan140 = person -> person.getHeight() >= 170;
+    private static final Predicate<Person> isGenderMale = person -> person.getGender().equals("Male");
 
-    static Function<List<Person>, Map<String, Double>> functionTwo = personList -> {
+    private static Function<List<Person>, Map<String, Double>> functionTwo = personList -> {
         Map<String, Double> map = new HashMap<>();
         personList.forEach(person -> {
             if(isHeightGreaterThan140.and(isGenderMale).test(person)){
@@ -32,7 +32,7 @@ public class PersonFunction {
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
-        logger.info(functionOne.apply("java features"));
-        logger.info(functionTwo.apply(PersonRepository.getAllPersons()));
+        LOGGER.info(functionOne.apply("java features"));
+        LOGGER.info(functionTwo.apply(PersonRepository.getAllPersons()));
     }
 }

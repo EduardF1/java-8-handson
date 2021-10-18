@@ -15,7 +15,7 @@ import java.util.stream.Stream;
 
 
 public class StreamGrouping {
-    private static final Logger logger = LogManager.getLogger(StreamGrouping.class);
+    private static final Logger LOGGER = LogManager.getLogger(StreamGrouping.class);
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
@@ -33,8 +33,8 @@ public class StreamGrouping {
                 .stream()
                 .collect(Collectors.groupingBy(Person::getGender));
 
-        // genderGroup.entrySet().forEach(person -> logger.info("Key: " + person.getKey() + "/ Value" + person.getValue()));
-        Stream.of(genderGroup).forEach(logger::info);
+        // genderGroup.entrySet().forEach(person -> LOGGER.info("Key: " + person.getKey() + "/ Value" + person.getValue()));
+        Stream.of(genderGroup).forEach(LOGGER::info);
     }
 
     private static void groupByHeight() {
@@ -42,27 +42,27 @@ public class StreamGrouping {
                 .getAllPersons()
                 .stream()
                 .collect(Collectors.groupingBy(person -> person.getHeight() >= 170 ? "Tall" : "Short"));
-        Stream.of(heightGroup).forEach(logger::info);
+        Stream.of(heightGroup).forEach(LOGGER::info);
     }
 
     private static void twoLevelGrouping() {
         Map<String, Map<String, List<Person>>> genderAndHeightGroup = PersonRepository.getAllPersons()
                 .stream()
                 .collect(Collectors.groupingBy(Person::getGender, Collectors.groupingBy(person -> person.getHeight() >= 170 ? "Tall" : "Short")));
-        Stream.of(genderAndHeightGroup).forEach(logger::info);
+        Stream.of(genderAndHeightGroup).forEach(LOGGER::info);
     }
 
     private static void twoLevelGroupingCount() {
         Map<String, Integer> nameAndKidsGroup = PersonRepository.getAllPersons()
                 .stream()
                 .collect(Collectors.groupingBy(Person::getName, Collectors.summingInt(Person::getKids)));
-        Stream.of(nameAndKidsGroup).forEach(logger::info);
+        Stream.of(nameAndKidsGroup).forEach(LOGGER::info);
     }
 
     private static void threeLevelGrouping() {
         Map<String, List<Person>> namesGroup = PersonRepository.getAllPersons()
                 .stream()
                 .collect(Collectors.groupingBy(Person::getName, HashMap::new, Collectors.toList()));
-        Stream.of(namesGroup).forEach(logger::info);
+        Stream.of(namesGroup).forEach(LOGGER::info);
     }
 }

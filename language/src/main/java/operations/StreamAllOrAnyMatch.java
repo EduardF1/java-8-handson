@@ -11,24 +11,24 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class StreamAllOrAnyMatch {
-    private static final Logger logger = LogManager.getLogger(StreamAllOrAnyMatch.class);
+    private static final Logger LOGGER = LogManager.getLogger(StreamAllOrAnyMatch.class);
     private static final List<String> fruits = Arrays.asList("Avocado", "Banana", "Mango", "Pineapple");
 
-    static Predicate<String> isElementNameLengthGreaterThan2 = fruit -> fruit.length() > 2;
-    static Predicate<Person> isPersonTall = person -> person.getHeight() >= 170;
-    static Predicate<Person> isPersonMale = person -> person.getGender().equals("Male");
+    private static final Predicate<String> isElementNameLengthGreaterThan2 = fruit -> fruit.length() > 2;
+    private static final Predicate<Person> isPersonTall = person -> person.getHeight() >= 170;
+    private static final Predicate<Person> isPersonMale = person -> person.getGender().equals("Male");
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
-        logger.info(areAllElementsMatching(isElementNameLengthGreaterThan2));
-        logger.info(isAnyElementMatching(isElementNameLengthGreaterThan2));
+        LOGGER.info(areAllElementsMatching(isElementNameLengthGreaterThan2));
+        LOGGER.info(isAnyElementMatching(isElementNameLengthGreaterThan2));
 
-        logger.info("All persons are tall: " + PersonRepository.getAllPersons()
+        LOGGER.info("All persons are tall: " + PersonRepository.getAllPersons()
                 .stream()
                 .allMatch(isPersonTall));
 
-        logger.info("All persons are tall: " + PersonRepository.getAllPersons()
+        LOGGER.info("All persons are tall: " + PersonRepository.getAllPersons()
                 .stream()
                 .anyMatch(isPersonTall.and(isPersonMale)));
     }

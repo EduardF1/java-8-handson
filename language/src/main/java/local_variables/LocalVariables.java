@@ -7,7 +7,7 @@ import org.apache.log4j.Logger;
 import java.util.function.Consumer;
 
 public class LocalVariables {
-    private static final Logger logger = LogManager.getLogger(LocalVariables.class);
+    private static final Logger LOGGER = LogManager.getLogger(LocalVariables.class);
     static int k = 0;
 
     public static void main(String[] args) {
@@ -16,8 +16,8 @@ public class LocalVariables {
 
         Consumer<Integer> consumer = (_value) -> {
             k = 21;
-            logger.info("K: " + k);
-            logger.info("The value is :" + (value + _value));
+            LOGGER.info("K: " + k);
+            LOGGER.info("The value is :" + (value + _value));
         };
         consumer.accept(15);
     }

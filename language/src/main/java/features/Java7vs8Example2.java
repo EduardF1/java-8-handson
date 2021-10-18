@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Java7vs8Example2 {
-    private static final Logger logger = LogManager.getLogger(Java7vs8Example2.class);
+    private static final Logger LOGGER = LogManager.getLogger(Java7vs8Example2.class);
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
-        logger.info(getUniqueNamesJava8(getNames()));
+        LOGGER.info(getUniqueNamesJava8(getNames()));
     }
 
     private static List<String> getNames() {

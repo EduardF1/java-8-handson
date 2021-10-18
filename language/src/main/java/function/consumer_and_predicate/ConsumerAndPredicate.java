@@ -14,16 +14,16 @@ import java.util.function.Predicate;
 
 public class ConsumerAndPredicate {
 
-    private static final Logger logger = LogManager.getLogger(ConsumerAndPredicate.class);
+    private static final Logger LOGGER = LogManager.getLogger(ConsumerAndPredicate.class);
 
-    static Predicate<Person> isHeightGreaterThan140 = person -> person.getHeight() >= 140;
-    static Predicate<Person> isGenderMale = person -> person.getGender().equals("Male");
-    static BiPredicate<Integer, String> isHeightGreaterThan140AndIsGenderMale = (height, gender) -> height >= 140 && gender.equals("Male");
-    static BiConsumer<String, List<String>> hobbiesConsumer = (name, hobbies) -> logger.info(name + " " + hobbies);
-    static Consumer<Person> personConsumer = person -> {
+    private static final Predicate<Person> isHeightGreaterThan140 = person -> person.getHeight() >= 140;
+    private static final Predicate<Person> isGenderMale = person -> person.getGender().equals("Male");
+    private static final BiPredicate<Integer, String> isHeightGreaterThan140AndIsGenderMale = (height, gender) -> height >= 140 && gender.equals("Male");
+    private static final BiConsumer<String, List<String>> hobbiesConsumer = (name, hobbies) -> LOGGER.info(name + " " + hobbies);
+    private static final Consumer<Person> personConsumer = person -> {
         if (isHeightGreaterThan140.and(isGenderMale).test(person)) hobbiesConsumer.accept(person.getName(), person.getHobbies());
     };
-    static Consumer<Person> compositePersonConsumer = person -> {
+    private static final Consumer<Person> compositePersonConsumer = person -> {
         if (isHeightGreaterThan140AndIsGenderMale.test(person.getHeight(), person.getGender())) {
             hobbiesConsumer.accept(person.getName(), person.getHobbies());
         }

@@ -12,22 +12,22 @@ import java.util.List;
 import java.util.Optional;
 
 public class StreamReduce {
-    private static final Logger logger = LogManager.getLogger(StreamReduce.class);
+    private static final Logger LOGGER = LogManager.getLogger(StreamReduce.class);
     private static final List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
-        logger.info(getSum());
-        logger.info(getCount());
+        LOGGER.info(getSum());
+        LOGGER.info(getCount());
 
-        logger.info("Result of multiplication : " + getMultipliedNumbers());
-        logger.info("Result of multiplication : " + getReducedSum());
+        LOGGER.info("Result of multiplication : " + getMultipliedNumbers());
+        LOGGER.info("Result of multiplication : " + getReducedSum());
 
-        logger.info(getCombinedNames());
+        LOGGER.info(getCombinedNames());
 
         Optional<Person> tallestPerson = getTallestPerson();
-        logger.info(tallestPerson.orElse(null));
+        LOGGER.info(tallestPerson.orElse(null));
     }
 
     private static Integer getReducedSum() {

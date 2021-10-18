@@ -13,14 +13,14 @@ import java.util.stream.Collectors;
 import static java.util.stream.Collectors.mapping;
 
 public class StreamMapping {
-    private static final Logger logger = LogManager.getLogger(StreamMapping.class);
+    private static final Logger LOGGER = LogManager.getLogger(StreamMapping.class);
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
-        getPersonMappedNames().forEach(logger::info);
-        getPersonMappedNames2().forEach(logger::info);
-        logger.info("Tall persons count: " + getTallPersonsCount());
+        getPersonMappedNames().forEach(LOGGER::info);
+        getPersonMappedNames2().forEach(LOGGER::info);
+        LOGGER.info("Tall persons count: " + getTallPersonsCount());
     }
 
     private static List<String> getPersonMappedNames() {

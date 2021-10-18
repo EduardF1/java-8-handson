@@ -9,22 +9,22 @@ import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class StreamsSequentialAndParallel {
-    private static final Logger logger = LogManager.getLogger(StreamsSequentialAndParallel.class);
+    private static final Logger LOGGER = LogManager.getLogger(StreamsSequentialAndParallel.class);
     private static final String[]  str= {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
-        logger.info(Runtime.getRuntime().availableProcessors());
-        logger.info("--- Sequential Run ---");
+        LOGGER.info(Runtime.getRuntime().availableProcessors());
+        LOGGER.info("--- Sequential Run ---");
         displayStream(Arrays.stream(str).sequential());
-        logger.info("--- Parallel Run ---");
+        LOGGER.info("--- Parallel Run ---");
         displayStream(Arrays.stream(str).parallel());
     }
 
     private static void displayStream(Stream<String> stream){
         stream.forEach(string -> {
-            logger.info(LocalTime.now() + " Value : " +
+            LOGGER.info(LocalTime.now() + " Value : " +
                     string + " - thread :" +
                     Thread.currentThread().getName());
             try {

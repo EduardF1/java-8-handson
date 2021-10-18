@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 import java.util.stream.IntStream;
 
 public class StreamsSequentialAndParallel2 {
-    private static final Logger logger = LogManager.getLogger(StreamsSequentialAndParallel2.class);
+    private static final Logger LOGGER = LogManager.getLogger(StreamsSequentialAndParallel2.class);
     private static final String LABEL_1 = "Sum (sequential) stream :";
     private static final String LABEL_2 = "Sum (parallel) stream :";
     private static final int[] RANGE_BOUNDS = {0, 1000000};
@@ -16,10 +16,10 @@ public class StreamsSequentialAndParallel2 {
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
-        //  logger.info(LABEL_1 + getSumUsingSequentialStream());
-        //  logger.info(LABEL_1 + getSumUsingParallelStream());
-        logger.info(LABEL_1 + checkPerformance(StreamsSequentialAndParallel2::getSumUsingSequentialStream, 25));
-        logger.info(LABEL_2 + checkPerformance(StreamsSequentialAndParallel2::getSumUsingParallelStream, 25));
+        //  LOGGER.info(LABEL_1 + getSumUsingSequentialStream());
+        //  LOGGER.info(LABEL_1 + getSumUsingParallelStream());
+        LOGGER.info(LABEL_1 + checkPerformance(StreamsSequentialAndParallel2::getSumUsingSequentialStream, 25));
+        LOGGER.info(LABEL_2 + checkPerformance(StreamsSequentialAndParallel2::getSumUsingParallelStream, 25));
     }
 
     private static long checkPerformance(Supplier<Integer> sum, int executionTimes) {

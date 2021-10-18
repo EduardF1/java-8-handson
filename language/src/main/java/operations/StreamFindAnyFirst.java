@@ -11,16 +11,16 @@ import java.util.Optional;
 import java.util.function.Predicate;
 
 public class StreamFindAnyFirst {
-    private static final Logger logger = LogManager.getLogger(StreamFindAnyFirst.class);
+    private static final Logger LOGGER = LogManager.getLogger(StreamFindAnyFirst.class);
 
-    static Predicate<Person> isPersonTall = person -> person.getHeight() >= 170;
-    static Predicate<Person> isPersonMale = person -> person.getGender().equals("Female");
+    private static final Predicate<Person> isPersonTall = person -> person.getHeight() >= 170;
+    private static final Predicate<Person> isPersonMale = person -> person.getGender().equals("Female");
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
-        logger.info("Find any result : " + getFirstTallPersons().orElse(null));
-        logger.info("Find First result : " + getFirstWoman().orElse(null));
+        LOGGER.info("Find any result : " + getFirstTallPersons().orElse(null));
+        LOGGER.info("Find First result : " + getFirstWoman().orElse(null));
     }
 
     private static Optional<Person> getFirstTallPersons() {

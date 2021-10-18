@@ -13,16 +13,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class StreamFlatMap {
-    private static final Logger logger = LogManager.getLogger(StreamFlatMap.class);
+    private static final Logger LOGGER = LogManager.getLogger(StreamFlatMap.class);
 
-    static List<String> getAllHobbies(List<Person> persons) {
+    private static List<String> getAllHobbies(List<Person> persons) {
         return persons.stream()
                 .map(Person::getHobbies)
                 .flatMap(List::stream)
                 .collect(Collectors.toList());
     }
 
-    static List<String> getDistinctHobbies(List<Person> persons) {
+    private static List<String> getDistinctHobbies(List<Person> persons) {
         return persons.stream()
                 .map(Person::getHobbies)
                 .flatMap(List::stream)
@@ -31,7 +31,7 @@ public class StreamFlatMap {
                 .collect(Collectors.toList());
     }
 
-    static long getCountOfHobbies(List<Person> persons){
+    private static long getCountOfHobbies(List<Person> persons){
         return persons.stream()
                 .map(Person::getHobbies)
                 .flatMap(List::stream)
@@ -47,15 +47,15 @@ public class StreamFlatMap {
         List<Integer> evenNumber = Arrays.asList(2, 4, 6, 8);
 
         List<List<Integer>> listOfList = Arrays.asList(oddNumber, evenNumber);
-        logger.info("Before Flattening :" + listOfList);
+        LOGGER.info("Before Flattening :" + listOfList);
 
         List<Integer> flattenedList = listOfList.stream()
                 .flatMap(Collection::stream)
                 .collect(Collectors.toList());
-        logger.info("After Flattening :" + flattenedList);
+        LOGGER.info("After Flattening :" + flattenedList);
 
-        logger.info("Hobbies with duplicates: " + getAllHobbies(PersonRepository.getAllPersons()));
-        logger.info("Hobbies without duplicates: " + getDistinctHobbies(PersonRepository.getAllPersons()));
-        logger.info("Hobbies count: " + getCountOfHobbies(PersonRepository.getAllPersons()));
+        LOGGER.info("Hobbies with duplicates: " + getAllHobbies(PersonRepository.getAllPersons()));
+        LOGGER.info("Hobbies without duplicates: " + getDistinctHobbies(PersonRepository.getAllPersons()));
+        LOGGER.info("Hobbies count: " + getCountOfHobbies(PersonRepository.getAllPersons()));
     }
 }

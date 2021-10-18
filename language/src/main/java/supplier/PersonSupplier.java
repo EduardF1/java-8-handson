@@ -10,14 +10,14 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public class PersonSupplier {
-    private static final Logger logger = LogManager.getLogger(PersonSupplier.class);
-    static Supplier<Person> supplier1 = PersonRepository::getPerson;
-    static Supplier<List<Person>> supplier2 = PersonRepository::getAllPersons;
+    private static final Logger LOGGER = LogManager.getLogger(PersonSupplier.class);
+    private static final Supplier<Person> supplier1 = PersonRepository::getPerson;
+    private static final Supplier<List<Person>> supplier2 = PersonRepository::getAllPersons;
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
-        logger.info("Result one:" + supplier2.get());
-        logger.info("Result two:" + supplier1.get());
+        LOGGER.info("Result one:" + supplier2.get());
+        LOGGER.info("Result two:" + supplier1.get());
     }
 }

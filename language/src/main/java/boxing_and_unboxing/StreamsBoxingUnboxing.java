@@ -9,13 +9,13 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class StreamsBoxingUnboxing {
-    private static final Logger logger = LogManager.getLogger(StreamsBoxingUnboxing.class);
+    private static final Logger LOGGER = LogManager.getLogger(StreamsBoxingUnboxing.class);
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
-        logger.info(getNumbers());
-        logger.info(calculateSum(getNumbers()));
+        LOGGER.info(getNumbers());
+        LOGGER.info(calculateSum(getNumbers()));
     }
 
     // boxing

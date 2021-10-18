@@ -10,21 +10,21 @@ import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 
 public class NumericStreamFactoryMethod {
-    private static final Logger logger = LogManager.getLogger(NumericStreamFactoryMethod.class);
+    private static final Logger LOGGER = LogManager.getLogger(NumericStreamFactoryMethod.class);
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
         int sum = IntStream.rangeClosed(1, 50).sum();
-        logger.info("The total is: " + sum);
+        LOGGER.info("The total is: " + sum);
 
         OptionalInt max = IntStream.rangeClosed(1, 50).max();
-        logger.info("The maximum value is: " + max.orElse(0));
+        LOGGER.info("The maximum value is: " + max.orElse(0));
 
         OptionalInt min = IntStream.rangeClosed(1, 50).min();
-        logger.info("The minimum value is: " + min.orElse(0));
+        LOGGER.info("The minimum value is: " + min.orElse(0));
 
         OptionalDouble average = LongStream.rangeClosed(1, 50).average();
-        logger.info("The average value is: " + average.orElse(0));
+        LOGGER.info("The average value is: " + average.orElse(0));
     }
 }

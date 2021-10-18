@@ -7,12 +7,12 @@ import org.apache.log4j.Logger;
 import java.util.Comparator;
 
 public class ComparatorLambda {
-    private static final Logger logger = LogManager.getLogger(ComparatorLambda.class);
+    private static final Logger LOGGER = LogManager.getLogger(ComparatorLambda.class);
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
-        logger.info(compareJava7(12, 12));
-        logger.info(compareJava8(1,1));
+        LOGGER.info(compareJava7(12, 12));
+        LOGGER.info(compareJava8(1,1));
     }
 
     private static String compareJava8(int m, int n) {

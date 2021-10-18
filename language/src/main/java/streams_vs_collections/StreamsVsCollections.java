@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamsVsCollections {
-    private static final Logger logger = LogManager.getLogger(StreamsVsCollections.class);
+    private static final Logger LOGGER = LogManager.getLogger(StreamsVsCollections.class);
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
@@ -24,24 +24,24 @@ public class StreamsVsCollections {
         names.add("Nathan");
 
         for (String name : names) {
-            logger.info("Iteration 1 :" + name);
+            LOGGER.info("Iteration 1 :" + name);
         }
 
         for (String name : names) {
-            logger.info("Iteration 2 :" + name);
+            LOGGER.info("Iteration 2 :" + name);
         }
 
         Stream<String> stream = names.stream();
-        stream.forEach(name -> logger.info("<<< :" + name));
+        stream.forEach(name -> LOGGER.info("<<< :" + name));
 
         List<String> personNames = PersonRepository
                 .getAllPersons()
                 .stream()
-                .peek(logger::info)    // used for debugging purposes, the equivalent of "tap" from RxJS
+                .peek(LOGGER::info)    // used for debugging purposes, the equivalent of "tap" from RxJS
                 .map(Person::getName)
-                .peek(logger::info)
+                .peek(LOGGER::info)
                 .collect(Collectors.toList());
 
-        logger.info(personNames);
+        LOGGER.info(personNames);
     }
 }

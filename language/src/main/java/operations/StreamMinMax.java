@@ -14,14 +14,14 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class StreamMinMax {
-    private static final Logger logger = LogManager.getLogger(StreamMinMax.class);
+    private static final Logger LOGGER = LogManager.getLogger(StreamMinMax.class);
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
-        logger.info("Tallest Person: " + getTallestPerson());
-        logger.info("Shortest Person: " + getShortestPerson());
-        logger.info("Tall persons group: " + getTallestPersons());
+        LOGGER.info("Tallest Person: " + getTallestPerson());
+        LOGGER.info("Shortest Person: " + getShortestPerson());
+        LOGGER.info("Tall persons group: " + getTallestPersons());
     }
 
     private static Optional<Person> getTallestPerson() {

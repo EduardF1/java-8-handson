@@ -10,24 +10,24 @@ import org.apache.log4j.Logger;
 import java.util.Comparator;
 
 public class StreamSort {
-    private static final Logger logger = LogManager.getLogger(StreamSort.class);
+    private static final Logger LOGGER = LogManager.getLogger(StreamSort.class);
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
-        logger.info("Sort by Name:");
+        LOGGER.info("Sort by Name:");
         PersonRepository.getAllPersons().stream()
                 .sorted(Comparator.comparing(Person::getName))
-                .forEach(logger::info);
+                .forEach(LOGGER::info);
 
-        logger.info("Sort by Height:");
+        LOGGER.info("Sort by Height:");
         PersonRepository.getAllPersons().stream()
                 .sorted(Comparator.comparing(Person::getHeight))
-                .forEach(logger::info);
+                .forEach(LOGGER::info);
 
-        logger.info("Reverse Sort by Name:");
+        LOGGER.info("Reverse Sort by Name:");
         PersonRepository.getAllPersons().stream()
                 .sorted(Comparator.comparing(Person::getName).reversed())
-                .forEach(logger::info);
+                .forEach(LOGGER::info);
     }
 }

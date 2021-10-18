@@ -11,14 +11,14 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamJoining {
-    private static final Logger logger = LogManager.getLogger(StreamJoining.class);
+    private static final Logger LOGGER = LogManager.getLogger(StreamJoining.class);
     private static final char[] characters = {'a', 'b', 'c', 'd', 'e'};
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
-        logger.info(getJoinedCharacters());
-        logger.info(getJoinedPersonNames());
+        LOGGER.info(getJoinedCharacters());
+        LOGGER.info(getJoinedPersonNames());
     }
 
     private static String getJoinedPersonNames(){

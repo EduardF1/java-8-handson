@@ -13,15 +13,15 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class StreamPartitioning {
-    private static final Logger logger = LogManager.getLogger(StreamMapping.class);
+    private static final Logger LOGGER = LogManager.getLogger(StreamMapping.class);
     private static Predicate<Person> isPersonTall = person -> person.getHeight() >= 170;
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
-        logger.info(getPersonsPartitionedByHeight());
-        logger.info(getPersonsPartitionedWith2Parameters());
-        logger.info(getPersonsPartitionedByNameAndHobbies());
+        LOGGER.info(getPersonsPartitionedByHeight());
+        LOGGER.info(getPersonsPartitionedWith2Parameters());
+        LOGGER.info(getPersonsPartitionedByNameAndHobbies());
     }
 
     private static Map<Boolean, List<Person>> getPersonsPartitionedByHeight() {

@@ -10,25 +10,25 @@ import java.util.List;
 import java.util.function.Consumer;
 
 public class PersonConsumer {
-    private static final Logger logger = LogManager.getLogger(PersonConsumer.class);
+    private static final Logger LOGGER = LogManager.getLogger(PersonConsumer.class);
 
-    static Consumer<Person> consumer = parameter -> logger.info(parameter);
-    static Consumer<Person> consumer2 = parameter -> logger.info(parameter.getName().toUpperCase());
-    static Consumer<Person> consumer3 = parameter -> logger.info(parameter.getHobbies());
+    private static final Consumer<Person> consumer = parameter -> LOGGER.info(parameter);
+    private static final Consumer<Person> consumer2 = parameter -> LOGGER.info(parameter.getName().toUpperCase());
+    private static final Consumer<Person> consumer3 = parameter -> LOGGER.info(parameter.getHobbies());
 
-    static List<Person> getAllPersons() {
+    private static List<Person> getAllPersons() {
         return PersonRepository.getAllPersons();
     }
 
-    static void getAllPersonsInformation() {
+    private static void getAllPersonsInformation() {
         getAllPersons().forEach(consumer);
     }
 
-    static void getNamesAndHobbies() {
+    private static void getNamesAndHobbies() {
         getAllPersons().forEach(consumer.andThen(consumer2));
     }
 
-    static void getAllMaleAndTallPersonsHobbiesAndCapitalizedNames() {
+    private static void getAllMaleAndTallPersonsHobbiesAndCapitalizedNames() {
         getAllPersons().forEach(person -> {
             if (person.getGender().equals("Male") && person.getHeight() >= 140) {
                 consumer2.andThen(consumer3).accept(person);

@@ -11,7 +11,7 @@ import org.apache.log4j.Logger;
 import java.util.Optional;
 
 public class OptionalMap {
-    private static final Logger logger = LogManager.getLogger(OptionalMap.class);
+    private static final Logger LOGGER = LogManager.getLogger(OptionalMap.class);
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
@@ -27,7 +27,7 @@ public class OptionalMap {
         Optional<Person> person = PersonRepository.getPersonOptional();
         person.ifPresent(per -> {
             String name = person.map(Person::getName).orElse("Nothing Found");
-            logger.info(name);
+            LOGGER.info(name);
         });
     }
 
@@ -36,7 +36,7 @@ public class OptionalMap {
         person.ifPresent(per -> {
             if(person.isPresent()){
                 Optional<Address> address = person.flatMap(Person::getAddress);
-                logger.info("Address :" + (address.isPresent() ? address.get().toString() : Optional.empty()));
+                LOGGER.info("Address :" + (address.isPresent() ? address.get().toString() : Optional.empty()));
             }
         });
     }
@@ -44,20 +44,20 @@ public class OptionalMap {
     private static void displayTallPersonAddress(){
         Optional<Person> person = PersonRepository.getPersonOptional()
                 .filter(per -> per.getHeight() >= 170);
-        person.ifPresent(per -> logger.info(per.getAddress().get().toString()));
+        person.ifPresent(per -> LOGGER.info(per.getAddress().get().toString()));
     }
 
     private static void displayPersonAddress2(){
         Optional<Person> person = PersonRepository.getPersonOptional();
         if(person.isPresent()){
             Optional<Address> address = person.flatMap(Person::getAddress);
-            logger.info(address.get().toString());
+            LOGGER.info(address.get().toString());
         }
     }
 
     private static void displayPersonAddress3(){
         Optional<Person> person = PersonRepository.getPersonOptional()
                 .filter(per -> per.getHeight() >= 170);
-        person.ifPresent(per -> logger.info(per.getAddress()));
+        person.ifPresent(per -> LOGGER.info(per.getAddress()));
     }
 }

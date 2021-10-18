@@ -7,7 +7,7 @@ import org.apache.log4j.Logger;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class RunnableLambda {
-    private static final Logger logger = LogManager.getLogger(RunnableLambda.class);
+    private static final Logger LOGGER = LogManager.getLogger(RunnableLambda.class);
     private static final AtomicInteger ID_GENERATOR = new AtomicInteger(1);
     private static final String TAB = "\t";
     private static final String THREAD = "Thread";
@@ -24,16 +24,16 @@ public class RunnableLambda {
         java.lang.Runnable thread = new java.lang.Runnable() {
             @Override
             public void run() {
-                logger.info(output + TAB + getId());
+                LOGGER.info(output + TAB + getId());
             }
         };
         new Thread(thread).start();
     }
 
     private static void runThreadJava8(String output, boolean shouldCreateInnerThread, String innerThreadOutput) {
-        new Thread(() -> logger.info(output + TAB + getId())).start();
+        new Thread(() -> LOGGER.info(output + TAB + getId())).start();
         if(shouldCreateInnerThread){
-            new Thread(() -> logger.info(innerThreadOutput + TAB + getId())).start();
+            new Thread(() -> LOGGER.info(innerThreadOutput + TAB + getId())).start();
         }
     }
 

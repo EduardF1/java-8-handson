@@ -13,17 +13,17 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class StreamMap {
-    private static final Logger logger = LogManager.getLogger(StreamMap.class);
+    private static final Logger LOGGER = LogManager.getLogger(StreamMap.class);
     private static final List<String> fruits = Arrays.asList("Apple", "Orange", "Banana", "Pineapple");
 
-    static List<String> toUpperTransform(List<Person> persons) {
+    private static List<String> toUpperTransform(List<Person> persons) {
         return persons.stream()
                 .map(Person::getName)
                 .map(String::toUpperCase)
                 .collect(Collectors.toList());
     }
 
-    static Set<String> toUpperTransformSet(List<Person> persons) {
+    private static Set<String> toUpperTransformSet(List<Person> persons) {
         return persons.stream()
                 .map(Person::getName)
                 .map(String::toUpperCase)
@@ -37,14 +37,14 @@ public class StreamMap {
                 .map(String::length)
                 .collect(Collectors.toList());
 
-        logger.info(fruitLengths);
+        LOGGER.info(fruitLengths);
 
         fruits.stream()
                 .map(String::length)
                 .collect(Collectors.toList())
-                .forEach(logger::info);
+                .forEach(LOGGER::info);
 
-        logger.info(toUpperTransform(PersonRepository.getAllPersons()));
-        logger.info(toUpperTransformSet(PersonRepository.getAllPersons()));
+        LOGGER.info(toUpperTransform(PersonRepository.getAllPersons()));
+        LOGGER.info(toUpperTransformSet(PersonRepository.getAllPersons()));
     }
 }

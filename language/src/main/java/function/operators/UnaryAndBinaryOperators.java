@@ -9,22 +9,22 @@ import java.util.function.BinaryOperator;
 import java.util.function.UnaryOperator;
 
 public class UnaryAndBinaryOperators {
-    private static final Logger logger = LogManager.getLogger(UnaryAndBinaryOperators.class);
+    private static final Logger LOGGER = LogManager.getLogger(UnaryAndBinaryOperators.class);
 
-    static UnaryOperator<String> unaryOperatorOne = name -> name.toUpperCase();
-    static UnaryOperator<Integer> unaryOperatorTwo = a -> a + 10;
-    static Comparator<Integer> comparator = (a, b) -> a.compareTo(b);
+    private static final UnaryOperator<String> unaryOperatorOne = name -> name.toUpperCase();
+    private static final UnaryOperator<Integer> unaryOperatorTwo = a -> a + 10;
+    private static final Comparator<Integer> comparator = (a, b) -> a.compareTo(b);
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
 
-        logger.info("Result one:" + unaryOperatorOne.apply("Java8"));
-        logger.info("Result two:" + unaryOperatorTwo.apply(21));
+        LOGGER.info("Result one:" + unaryOperatorOne.apply("Java8"));
+        LOGGER.info("Result two:" + unaryOperatorTwo.apply(21));
 
         BinaryOperator<Integer> binaryOperatorOne = BinaryOperator.maxBy(comparator);
         BinaryOperator<Integer> binaryOperatorTwo = BinaryOperator.minBy(comparator);
 
-        logger.info("Binary Operator Result 1:" + binaryOperatorOne.apply(12, 13));
-        logger.info("Binary Operator Result 2:" + binaryOperatorTwo.apply(12, 13));
+        LOGGER.info("Binary Operator Result 1:" + binaryOperatorOne.apply(12, 13));
+        LOGGER.info("Binary Operator Result 2:" + binaryOperatorTwo.apply(12, 13));
     }
 }
