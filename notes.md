@@ -146,3 +146,36 @@ List square = numbers.stream().map(x->x*x).collect(Collectors.toList());
 #### Boxing vs Unboxing
 - Boxing : convert primitives to wrapper types
 - Unboxing : convert wrapper types to primitives
+
+#### Sequential vs Parallel
+| Sequential                                      |    Parallel                                                          |
+|-------------------------------------------------|:--------------------------------------------------------------------:|
+| Works just like a for-loop using a single core  | Divide the provided task into many and run them in different threads |
+| Runs on Single core                             | Runs on multiple cores                                               |
+| Supports Lazy evaluation                        | Supports Lazy evaluation                                             |
+| Usage based on the the required task            | Usage based on the required task                                     |
+
+```
+Sequential
+                    |--------------|  |--------------|  |--------------|  |--------------|  |--------------|  |--------------|    
+Sequential: core 1  |  Iteration 1 |  |  Iteration 2 |  |  Iteration 3 |  |  Iteration 4 |  |  Iteration 5 |  |  Iteration 6 |    
+                    |--------------|  |--------------|  |--------------|  |--------------|  |--------------|  |--------------|    
+
+                  |--------------|  |--------------|      
+Parallel: core 1  |  Iteration 2 |  |  Iteration 5 |      
+                  |--------------|  |--------------|    
+                   
+                  |--------------|
+          core 2  |  Iteration 1 |
+                  |--------------|
+                  
+                  |--------------|  |--------------|
+          core 3  |  Iteration 3 |  |  Iteration 4 |
+                  |--------------|  |--------------|
+          
+                  |--------------|
+          core 4  |  Iteration 6 |
+                  |--------------|        
+                  
+          |------------------------------------------------- TIME ----------------------------------------------------------->        
+```
