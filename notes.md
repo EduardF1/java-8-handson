@@ -196,3 +196,16 @@ values as 'available' or 'not available' instead of checking null values.
 | empty()                      |  Returns an empty Optional instance                                                                   |
 | of(T value)                  |  Returns an Optional with the specified present not null value                                        |
 | ofNullable(T value)          |  Returns an Optional Describing the specified value, if not null, otherwise returns an empty Optional |
+
+### Interfaces
+- Define a contract that will be implemented by client classes.
+- No implementation allowed within the interface.
+- Changes to interface not possible.
+Types: Static and Default
+
+| `Default`                                                 |    `Static`                                                              |
+|---------------------------------------------------------|:----------------------------------------------------------------------:|
+| The `default` keyword allows creating methods with body |  Traditional `static` method which allows creation of a method with body |
+| Allowed to Override                                     |  Override not allowed                                                  |
+| Access using interface object                           |  Access only through the interface name                                |
+| Extension possible                                      |  Limited access                                                        |

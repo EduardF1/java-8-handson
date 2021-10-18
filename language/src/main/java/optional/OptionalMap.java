@@ -18,7 +18,9 @@ public class OptionalMap {
 
         displayPersonName();
         displayPersonAddress();
+        displayPersonAddress2();
         displayTallPersonAddress();
+        displayPersonAddress3();
     }
 
     private static void displayPersonName(){
@@ -43,5 +45,19 @@ public class OptionalMap {
         Optional<Person> person = PersonRepository.getPersonOptional()
                 .filter(per -> per.getHeight() >= 170);
         person.ifPresent(per -> logger.info(per.getAddress().get().toString()));
+    }
+
+    private static void displayPersonAddress2(){
+        Optional<Person> person = PersonRepository.getPersonOptional();
+        if(person.isPresent()){
+            Optional<Address> address = person.flatMap(Person::getAddress);
+            logger.info(address.get().toString());
+        }
+    }
+
+    private static void displayPersonAddress3(){
+        Optional<Person> person = PersonRepository.getPersonOptional()
+                .filter(per -> per.getHeight() >= 170);
+        person.ifPresent(per -> logger.info(per.getAddress()));
     }
 }
